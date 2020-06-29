@@ -4,6 +4,7 @@ type: pipeline-template
 
 name: DotNet Pipeline Job
 description: Simple DotNet Job
+TEST_PARAMS: test/HappyCode.NetCoreBoilerplate.Api.UnitTests/
 parameters:
   - name: TEST_PARAMS
     type: string
