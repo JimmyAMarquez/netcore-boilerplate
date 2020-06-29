@@ -1,0 +1,10 @@
+version: 1
+type: pipeline-template
+
+name: DotNet Pipeline Job
+description: Simple DotNet Job
+parameters:
+  - name: TEST_PARAMS
+    type: string
+    displayName: Email address to be used for sending build notifications
+    defaultValue: test/HappyCode.NetCoreBoilerplate.Api.UnitTests/
