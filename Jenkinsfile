@@ -5,7 +5,8 @@ pipeline {
       stage('Build') {
          steps {
             // Run dotnet build to build the process.
-            sh "dotnet build"
+           script{ datas = readYaml (file: 'template.yml') }
+           sh "dotnet build"
          }
 
          post {
@@ -20,7 +21,7 @@ pipeline {
             sh "echo '******Getting some Testing done********'"
             sh "cd "
             // Run dotnet build to build the process.
-            sh "dotnet test $TEST_PARAMS"
+           sh "dotnet test ${datas.TEST_PARAMS}"
          }
 
          post {
