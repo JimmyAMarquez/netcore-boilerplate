@@ -40,6 +40,12 @@ pipeline {
 
             // Run dotnet build to build the process.
             sh "dotnet publish"
+            dir("${env.WORKSPACE}/${DIR_URL}"){
+              withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '${CRED_ID}', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+               sh "aws s3 cp . s3://${BUCKET_NAME}/ --recursive"
+              }
+            }  
+            
          }
 
          post {
