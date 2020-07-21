@@ -52,7 +52,7 @@ pipeline {
             }  
            
            
-            sh "${scannerHome}/sonar-scanner-2.8/bin/sonar-scanner"
+            sh "${scannerHome}/sonar-scanner-2.8/bin/sonar-scanner d:sonar.login=admin d:sonar.password=admin"
           
             
          }
