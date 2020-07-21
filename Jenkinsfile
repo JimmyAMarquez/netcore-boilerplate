@@ -46,7 +46,7 @@ pipeline {
             dir("${env.WORKSPACE}/${DIR_URL}"){
               withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                 sh "tar -czvf netcoreapp3.1.tar.gz publish"
-                //sh "aws s3 cp netcoreapp3.1.tar.gz s3://${BUCKET_NAME}/"
+                sh "aws s3 cp netcoreapp3.1.tar.gz s3://${BUCKET_NAME}/"
                 //sh "aws s3 cp . s3://${BUCKET_NAME}/ --recursive"
               }
             }  
