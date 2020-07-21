@@ -35,6 +35,9 @@ pipeline {
       }
       
       stage('Publish') {
+        environment {
+            scannerHome = tool 'Sonar-dotnet'
+        }
          steps {
             sh "echo '******Publishing project********'"
 
@@ -47,6 +50,10 @@ pipeline {
                 //sh "aws s3 cp . s3://${BUCKET_NAME}/ --recursive"
               }
             }  
+           
+          withSonarQubeEnv('sonarqube') {
+              sh "${scannerHome}/bin/sonar-scanner"
+          }
             
          }
 
