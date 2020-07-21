@@ -51,7 +51,7 @@ pipeline {
               }
             }  
            
-          withSonarQubeEnv('sonarqube') {
+          withSonarQubeEnv('Sonar-dotnet') {
               sh "${scannerHome}/bin/sonar-scanner"
           }
             
