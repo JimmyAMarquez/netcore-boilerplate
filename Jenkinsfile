@@ -52,7 +52,7 @@ pipeline {
             }  
            
            
-            sh "${scannerHome}/sonar-scanner-4.4.0.2170/bin/sonar-scanner"
+            sh "${scannerHome}/sonar-scanner-2.8/bin/sonar-scanner"
           
             
          }
